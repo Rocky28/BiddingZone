@@ -1,0 +1,19 @@
+#welcome{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#frame{
+    padding-left:  400px;
+}
+
+#welcome input[type=submit]{
+    float:left;
+    margin-left: 50px;
+    position: relative;
+}
+#welcome input[type=text]{
+    width: 200px;
+   float: left;
+    position: relative;
+}

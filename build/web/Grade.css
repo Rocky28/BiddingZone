@@ -1,0 +1,69 @@
+#tname{
+    padding-left: 120px;
+    font-family: san-serif;
+    font-size: 20px;
+    margin-top: -70px;
+    font-weight: bold;
+}
+#user{
+    float: right;
+    font-family: san-serif;
+    font-size: 20px;
+    margin-top: -70px;
+   
+}
+#money{
+    margin-top: 20px;
+    
+}
+#grA{
+    margin-top: 100px;
+    padding-left: 500px;
+}
+
+#playerstats img{
+    padding-top: 30px;
+    width: 400px;
+    height: 450px;
+}
+
+#playerstats table{
+    padding-left: 450px;
+    text-align: left;
+    margin-top: -440px;
+}
+
+#playerstats input[type=submit]{
+    margin-left: 450px;
+}
+
+#arena{
+    margin-top: -150px;
+    float: right;
+    padding-right: 150px;
+}
+
+#arena table th{
+    text-align: left;
+}
+#arena table td{
+    text-align: right;
+}
+#owned{
+    margin-top: 40px;
+    padding-left: 450px;
+    float: left;
+}
+#owned table td{
+    width: 150px;
+    text-align: left;
+}
+#othersowned
+{
+    float: right;
+    margin-top: 40px;
+}
+#othersowned table td{
+    width: 120px;
+    text-align: left;
+}
