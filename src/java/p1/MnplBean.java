@@ -167,4 +167,108 @@ Connection db=null;
             }
         }catch(Exception e){}
     }
+    public ResultSet getCurrentBid(String pn,String gd)
+    {
+        try{
+            String sql="select h_bid,h_bidder from "+gd+"grade where nm=?";
+            ps=db.prepareStatement(sql);
+            ps.setString(1, pn);
+            rs=ps.executeQuery();
+        }catch(Exception e){}
+        return rs;
+    }
+    public ResultSet searchMyPlayers(String em)
+    {
+        try{
+            ps=db.prepareStatement("select players_owned from users where emailaddress=?");
+            ps.setString(1, em);
+            rs=ps.executeQuery();
+        }catch(Exception e){}
+        return rs;
+    }
+    public int getPrice(String pn)
+    {
+        int price =0;
+        try{
+            ps=db.prepareStatement("select h_bid from agrade where nm=?");
+            ps.setString(1, pn);
+            rs=ps.executeQuery();
+            if(rs.next())
+            {
+                price=rs.getInt(1);
+            }
+            else
+            {
+                 ps=db.prepareStatement("select h_bid from bgrade where nm=?");
+                 ps.setString(1, pn);
+                 rs=ps.executeQuery();
+                 if(rs.next())
+                 {
+                    price=rs.getInt(1);
+                 }
+                 else
+                 {
+                     ps=db.prepareStatement("select h_bid from cgrade where nm=?");
+                     ps.setString(1, pn);
+                     rs=ps.executeQuery();
+                     if(rs.next())
+                     {
+                         price=rs.getInt(1);
+                     }
+                     else
+                     {
+                         ps=db.prepareStatement("select h_bid from dgrade where nm=?");
+                         ps.setString(1, pn);
+                         rs=ps.executeQuery();
+                         if(rs.next())
+                         {
+                             price=rs.getInt(1);
+                         }
+                     }
+                 }
+            }
+        }catch(Exception e){}
+        return price;
+    }
+    public ResultSet getBidderInfo()
+    {
+        try{
+            ps=db.prepareStatement("select * from users");
+            rs=ps.executeQuery();
+        }catch(Exception e){}
+        return rs;
+    }
+    public boolean checkForNewBid(int h_bid,String pn,String gd)
+    {
+        int newbid=0;
+        try{
+            String sql="select h_bid from "+gd+"grade where nm=?";
+            ps=db.prepareStatement(sql);
+            ps.setString(1, pn);
+            rs=ps.executeQuery();
+            if(rs.next())
+            {
+                newbid=rs.getInt(1);
+            }
+            if(newbid>h_bid)
+            {
+                return true;
+            }
+        }catch(Exception e){}
+        return false;
+    }
+    public int getMyMoney(String em)
+    {
+        try{
+            ps=db.prepareStatement("select rem_amt from users where emailaddress=?");
+            ps.setString(1, em);
+            rs=ps.executeQuery();
+            if(rs.next())
+            {
+                int money=rs.getInt(1);
+                return money;
+            }
+        }catch(Exception e){}
+        return 0;
+    }
 }
