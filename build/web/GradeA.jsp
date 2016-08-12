@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="Grade.css"><% HttpSession s=request.getSession(true); %>
     </head>
     <body>
-        <div id="head"><%int id=1;s.setAttribute("id",id);%>
+        <div id="head"><%int id=1;s.setAttribute("id",id);s.setAttribute("Sold","Y");%>
             <img src="TUCC-Logo_static.gif" width="10%"><p id="tname">Mnpl 2.0</p> 
         </div>
         

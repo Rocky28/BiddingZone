@@ -23,6 +23,64 @@ public class addplayer extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+          MnplBean ob=new MnplBean();
+        HttpSession s=request.getSession(true);
+       
+        String name=((String)s.getAttribute("info")).trim();
+        String gd=((String)s.getAttribute("Grade")).trim();
+        int id=(Integer)s.getAttribute("id");
+        id++;
+        s.setAttribute("id", id);
+        String soldstat=(String)s.getAttribute("Sold");
+        if(gd.equals("A"))
+        {
+         System.out.print(name);
+         ob.addPlayer(name,gd);
+         if(soldstat.equals("Y"))
+         {
+             response.sendRedirect("GradeApl.jsp");
+         }
+         else
+         {
+             response.sendRedirect("Unsold_GradeApl.jsp");
+         }
+        }
+        else if(gd.equals("B"))
+        {
+             ob.addPlayer(name,gd);
+         if(soldstat.equals("Y"))
+         {
+             response.sendRedirect("GradeBpl.jsp");
+         }
+         else
+         {
+             response.sendRedirect("Unsold_GradeBpl.jsp");
+         }
+        }
+        else if(gd.equals("C"))
+        {
+             ob.addPlayer(name,gd);
+         if(soldstat.equals("Y"))
+         {
+             response.sendRedirect("GradeCpl.jsp");
+         }
+         else
+         {
+             response.sendRedirect("Unsold_GradeCpl.jsp");
+         }
+        }
+        else
+        {
+             ob.addPlayer(name,gd);
+            if(soldstat.equals("Y"))
+         {
+             response.sendRedirect("GradeDpl.jsp");
+         }
+         else
+         {
+             response.sendRedirect("Unsold_GradeDpl.jsp");
+         }
+        }
 //        processRequest(request, response);
     }
 
@@ -30,8 +88,9 @@ public class addplayer extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        MnplBean ob=new MnplBean();
+      /**  MnplBean ob=new MnplBean();
         HttpSession s=request.getSession(true);
+        System.out.print("here");
         String name=((String)s.getAttribute("info")).trim();
         String gd=((String)s.getAttribute("Grade")).trim();
         int id=(Integer)s.getAttribute("id");
@@ -39,6 +98,7 @@ public class addplayer extends HttpServlet {
         s.setAttribute("id", id);
         if(gd.equals("A"))
         {
+            System.out.print("here");
          ob.addPlayer(name,gd);
          response.sendRedirect("GradeApl.jsp");
         }
@@ -56,7 +116,7 @@ public class addplayer extends HttpServlet {
         {
              ob.addPlayer(name,gd);
             response.sendRedirect("GradeDpl.jsp");
-        }
+        }*/
   //      processRequest(request, response);
     }
 

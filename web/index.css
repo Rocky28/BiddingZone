@@ -4,16 +4,17 @@
 }
 
 #frame{
-    padding-left:  400px;
+    padding-left:  170px;
 }
 
 #welcome input[type=submit]{
     float:left;
-    margin-left: 50px;
+    margin-left: 20px;
     position: relative;
 }
 #welcome input[type=text]{
     width: 200px;
    float: left;
+   
     position: relative;
 }

@@ -24,6 +24,7 @@ public class check extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
+        
         MnplBean ob=new MnplBean();
         HttpSession s=request.getSession(true);
         response.setContentType("text/event-stream");
@@ -31,15 +32,17 @@ public class check extends HttpServlet {
         PrintWriter writer = response.getWriter();
         String res="";
         int c_bid=(Integer)s.getAttribute("c_bid");
+        
         boolean b=ob.checkForNewBid(c_bid,(String)s.getAttribute("info"),(String)s.getAttribute("Grade"));
+       
         if(b)
         {
-            writer.write("event:refresh\n");
+            writer.write("event: refresh\n");
             writer.write("data: yes\n\n");
         }
         else
         {
-            writer.write("event:refresh\n");
+            writer.write("event: refresh\n");
             writer.write("data: no\n\n");
         }
         writer.flush();

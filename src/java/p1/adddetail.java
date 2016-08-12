@@ -33,9 +33,10 @@ public class adddetail extends HttpServlet {
         MnplBean ob=new MnplBean();
         HttpSession s=request.getSession(true);
         String email=request.getParameter("t1");
+        System.out.print(email);
         s.setAttribute("email", email);
         ob.insert(email);
-        response.sendRedirect("GradeA.jsp");
+        response.sendRedirect("GradeD.jsp");
     //    processRequest(request, response);
     }
 

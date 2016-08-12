@@ -3,11 +3,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Grade A</title>
-        <link rel="stylesheet" type="text/css" href="Grade.css">
+        <title>Grade D</title>
+        <link rel="stylesheet" type="text/css" href="Grade.css"><% HttpSession s=request.getSession(true); %>
     </head>
     <body>
-        <div id="head">
+        <div id="head"><%int id=21;s.setAttribute("id",id);%>
             <img src="TUCC-Logo_static.gif" width="10%"><p id="tname">Mnpl 2.0</p> 
         </div>
         

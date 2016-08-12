@@ -39,11 +39,11 @@ public class bid extends HttpServlet {
         {
          ob.increaseBid((String)s.getAttribute("email"),name,gd,200);
         }
-        if(gd.equals("B"))
+        else if(gd.equals("B"))
         {
             ob.increaseBid((String)s.getAttribute("email"),name,gd,100);
         }
-        if(gd.equals("C"))
+        else if(gd.equals("C"))
         {
             ob.increaseBid((String)s.getAttribute("email"),name,gd,50);
         }
